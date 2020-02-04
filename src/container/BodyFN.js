@@ -1,18 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Quote from '../components/Quote';
-import getQuote from '../services/getQuote';
+import { useRandomQuote } from '../hooks/useRandomQuote';
 
 const BodyFN = () => {
-  const [quote, setQuote] = useState('QUOTE');
-  const [source, setSource] = useState('SOURCE');
-
-  const handleFetch = () => {
-    getQuote()
-      .then(({ tweetText, source }) => {
-        setQuote(tweetText);
-        setSource(source.fullName);
-      });
-  };
+  const { quote, source, handleFetch } = useRandomQuote();
 
   return (
     <>
