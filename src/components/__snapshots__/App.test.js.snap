@@ -3,8 +3,9 @@
 exports[`App component renders App 1`] = `
 <Fragment>
   <h1>
-    Hello World
+    MaRkOv TwAiN
   </h1>
   <Body />
+  <BodyFN />
 </Fragment>
 `;
