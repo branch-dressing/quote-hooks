@@ -9,7 +9,7 @@ export default class Body extends Component {
   }
 
   handleFetch = () => {
-    return getQuote()
+    getQuote()
       .then(({ tweetText, source }) => {
         this.setState({ quote: tweetText });
         this.setState({ source: source.fullName });
