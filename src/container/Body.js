@@ -4,20 +4,23 @@ import getQuote from '../services/getQuote';
 
 export default class Body extends Component {
   state = {
-    quote: 'default'
+    quote: 'QUOTE',
+    source: 'SOURCE'
   }
 
   handleFetch = () => {
     return getQuote()
-      .then(({ tweetText }) => tweetText)
-      .then(quote => this.setState({ quote }));
+      .then(({ tweetText, source }) => {
+        this.setState({ quote: tweetText });
+        this.setState({ source: source.fullName });
+      });
   }
 
   render() {
-    const { quote } = this.state;
+    const { quote, source } = this.state;
     return (
       <>
-        <Quote quote={quote} />
+        <Quote quote={quote} source={source} />
         <button onClick={this.handleFetch}>New Quote</button>
       </>
     );
