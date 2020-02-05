@@ -1,9 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import getQuote from '../services/getQuote';
 
 export const useRandomQuote = () => {
-  const [quote, setQuote] = useState('QUOTE');
-  const [source, setSource] = useState('SOURCE');
+  const [quote, setQuote] = useState();
+  const [source, setSource] = useState();
+
+  useEffect(() => {
+    const event = {
+      target: {
+        value: ''
+      }
+    };
+    handleFetch(event);
+  }, []);
 
   const handleFetch = ({ target }) => {
     getQuote(target.value)

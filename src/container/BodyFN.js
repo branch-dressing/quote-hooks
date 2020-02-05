@@ -8,15 +8,15 @@ const BodyFN = () => {
   return (
     <>
       <Quote quote={quote} source={source} />
-      <select defaultValue="" onChange={handleFetch}>
+      <select value="" onChange={handleFetch}>
         <option disabled value="">Quote by Author</option>
         <option value="5e1e4ec52d2b701b5aaf022a">Mark Twain</option>
         <option value="5e1e4ec52d2b701b5aaf0226">Jane Austen</option>
         <option value="5e1e4ec52d2b701b5aaf0228">Edgar Allan Poe</option>
         <option value="5e1e4ec52d2b701b5aaf0229">Lewis Carroll</option>
         <option value="5e1e4ec52d2b701b5aaf0227">Fyodor Dostoevsky</option>
+        <option value="">RANDOM</option>
       </select>
-      <button value={''} onClick={handleFetch}>Random Quote</button>
     </>
   );
 };
