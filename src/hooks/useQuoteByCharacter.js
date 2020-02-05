@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import getQuote from '../services/getQuote';
 
-export const useRandomQuote = () => {
+export const useQuoteByCharacter = () => {
   const [quote, setQuote] = useState('QUOTE');
   const [source, setSource] = useState('SOURCE');
 
-  const handleFetch = ({ target }) => {
-    getQuote(target.value)
+  const handleFetch = () => {
+    getQuote('')
       .then(({ tweetText, source }) => {
         setQuote(tweetText);
         setSource(source.fullName);
