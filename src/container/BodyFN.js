@@ -1,23 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Quote from '../components/Quote';
-import getQuote from '../services/getQuote';
+import { useRandomQuote } from '../hooks/useRandomQuote';
 
 const BodyFN = () => {
-  const [quote, setQuote] = useState('QUOTE');
-  const [source, setSource] = useState('SOURCE');
-
-  const handleFetch = () => {
-    getQuote()
-      .then(({ tweetText, source }) => {
-        setQuote(tweetText);
-        setSource(source.fullName);
-      });
-  };
+  const { quote, source, handleFetch } = useRandomQuote();
 
   return (
     <>
       <Quote quote={quote} source={source} />
-      <button onClick={handleFetch}>New Quote</button>
+      <select value="" onChange={handleFetch}>
+        <option disabled value="">Quote by Author</option>
+        <option value="5e1e4ec52d2b701b5aaf022a">Mark Twain</option>
+        <option value="5e1e4ec52d2b701b5aaf0226">Jane Austen</option>
+        <option value="5e1e4ec52d2b701b5aaf0228">Edgar Allan Poe</option>
+        <option value="5e1e4ec52d2b701b5aaf0229">Lewis Carroll</option>
+        <option value="5e1e4ec52d2b701b5aaf0227">Fyodor Dostoevsky</option>
+        <option value="">RANDOM</option>
+      </select>
     </>
   );
 };

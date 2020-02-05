@@ -9,8 +9,8 @@ const Quote = ({ quote, source }) => (
 );
 
 Quote.propTypes = {
-  quote: PropTypes.string.isRequired,
-  source: PropTypes.string.isRequired
+  quote: PropTypes.string,
+  source: PropTypes.string
 };
 
 export default Quote;

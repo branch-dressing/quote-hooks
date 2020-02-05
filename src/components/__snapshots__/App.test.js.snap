@@ -5,7 +5,6 @@ exports[`App component renders App 1`] = `
   <h1>
     MaRkOv TwAiN
   </h1>
-  <Body />
   <BodyFN />
 </Fragment>
 `;
